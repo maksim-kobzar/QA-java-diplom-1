@@ -17,7 +17,6 @@ public class BurgerTest {
     private final float burgerPriceTest = 20f;
     private final float ingredientPriceTest = 10f;
 
-
     Burger burger = new Burger();
     @Mock
     Bun bun;
@@ -50,9 +49,13 @@ public class BurgerTest {
         Mockito.when(bun.getPrice()).thenReturn(burgerPriceTest);
         Mockito.when(ingredient.getType()).thenReturn(SAUCE);
         Mockito.when(ingredient.getName()).thenReturn(ingredientNameTest);
-        System.out.println(burger.getReceipt());
 
-        Assert.assertNotNull("Ошибка в методе возврата рецепта", burger.getReceipt());
+        String expected = String.format("(==== %s ====)%n", burgerNameTest) +
+                String.format("= %s %s =%n", burger.ingredients.get(0).getType().toString().toLowerCase(),
+                        burger.ingredients.get(0).getName()) +
+                String.format("(==== %s ====)%n", burgerNameTest) +
+                String.format("%nPrice: %f%n", burger.getPrice());
+        Assert.assertEquals("Ошибка в методе возврата рецепта", expected, burger.getReceipt());
     }
 
     @Test
