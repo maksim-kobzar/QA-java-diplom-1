@@ -27,7 +27,7 @@ public class BurgerTest {
     public void getPriceTest() {
         burger.setBuns(bun);
         Mockito.when(bun.getPrice()).thenReturn(burgerPriceTest);
-        Assert.assertEquals("Ошибка в методе получения цены бургера", burger.getPrice(), burgerPriceTest * 2, 0.0f);
+        Assert.assertEquals("Ошибка в методе получения цены бургера", burgerPriceTest * 2, burger.getPrice(), 0.0f);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class BurgerTest {
         Mockito.when(ingredient.getPrice()).thenReturn(ingredientPriceTest);
 
         float expected = burgerPriceTest * 2 + ingredientPriceTest;
-        Assert.assertEquals("Ошибка в расчетах бургера с ингридиентом", burger.getPrice(), expected, 0.0f);
+        Assert.assertEquals("Ошибка в расчетах бургера с ингридиентом", expected, burger.getPrice(), 0.0f);
     }
 
     @Test
@@ -79,6 +79,6 @@ public class BurgerTest {
         burger.ingredients.add(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
         burger.ingredients.add(new Ingredient(IngredientType.SAUCE, "chili sauce", 300));
         burger.moveIngredient(0, 2);
-        Assert.assertEquals("Ошибка в методе изменения места в списке", burger.ingredients.size(), 3);
+        Assert.assertEquals("Ошибка в методе изменения места в списке", 3, burger.ingredients.size());
     }
 }

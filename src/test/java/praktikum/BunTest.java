@@ -12,11 +12,11 @@ public class BunTest {
 
     @Test
     public void getNameTest() {
-        Assert.assertEquals("Ошибка в методе возвращения названия бургера", testName, bun.getName());
+        Assert.assertEquals("Ошибка в методе возвращения названия бургера", bun.getName(), testName);
     }
 
     @Test
     public void getPriceTest() {
-        Assert.assertEquals("Ошибка в методе возвращения цены бургера", testPrice, bun.getPrice(), 0.0f);
+        Assert.assertEquals("Ошибка в методе возвращения цены бургера", bun.getPrice(), testPrice,  0.0f);
     }
 }

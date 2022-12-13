@@ -39,16 +39,16 @@ public class IngredientTest {
 
     @Test
     public void getPriceTest() {
-        Assert.assertEquals("Ошибка в методе возвращения цены бургера", ingredient.getPrice(), testPrice, 0.0f);
+        Assert.assertEquals("Ошибка в методе возвращения цены бургера", testPrice,  ingredient.getPrice(), 0.0f);
     }
 
     @Test
     public void getNameTest() {
-        Assert.assertEquals("Ошибка в методе возвращения названия бургера", ingredient.getName(), testName);
+        Assert.assertEquals("Ошибка в методе возвращения названия бургера", testName, ingredient.getName());
     }
 
     @Test
     public void getTypeTest() {
-        Assert.assertEquals("Ошибка в методе возвращения типа ингридиентов", ingredient.getType(), ingredientType);
+        Assert.assertEquals("Ошибка в методе возвращения типа ингридиентов", ingredientType, ingredient.getType());
     }
 }
